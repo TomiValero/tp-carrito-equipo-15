@@ -10,7 +10,7 @@
 
           <div class="carousel-inner">
               <div class="carousel-item active">
-                  <asp:Image ID="Imagen" runat="server" CssClass="d-block w-100" style="width:400px; margin:20px; height:400px;"/>
+                  <asp:Image ID="Imagen" runat="server" CssClass="d-block w-100" style="width:400px; margin:20px; height:400px;object-fit: contain;"/>
               </div>
           </div>
 
