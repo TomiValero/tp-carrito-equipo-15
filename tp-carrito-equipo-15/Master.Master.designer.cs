@@ -7,10 +7,12 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace tp_carrito_equipo_15 {
+namespace tp_carrito_equipo_15
+{
 
 
-    public partial class Master {
+    public partial class Master
+    {
 
         /// <summary>
         /// head control.
@@ -29,6 +31,15 @@ namespace tp_carrito_equipo_15 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+
+        /// <summary>
+        /// lblNumCarr control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNumCarr;
 
         /// <summary>
         /// ContentPlaceHolder1 control.

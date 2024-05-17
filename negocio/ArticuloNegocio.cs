@@ -47,6 +47,45 @@ namespace negocio
                 accesoDatos.cerrarConexion();
             }
         }
+
+        public Articulo BuscarPorId(int id)
+        {
+            Articulo articulo = new Articulo();
+            try
+            {
+                accesoDatos.setearConsulta(
+                 "SELECT Codigo, Nombre, A.Descripcion, C.Descripcion AS CDescripcion, M.Descripcion AS MDescripcion, Precio, A.IdCategoria AS ICategoria, A.IdMarca AS IMarca, A.Id AS IdArt  FROM ARTICULOS A INNER JOIN CATEGORIAS C ON A.IdCategoria = C.Id INNER JOIN MARCAS M ON A.IdMarca = M.Id WHERE A.Id = " + id
+                );
+                accesoDatos.ejecutarLectura();
+
+                while (accesoDatos.Lector.Read())
+                {
+
+
+                    articulo.Id = (int)accesoDatos.Lector["IdArt"];
+                    articulo.Codigo = (string)accesoDatos.Lector["Codigo"];
+                    articulo.Nombre = (string)accesoDatos.Lector["Nombre"];
+                    articulo.Descripcion = (string)accesoDatos.Lector["Descripcion"];
+                    articulo.Precio = accesoDatos.Lector.GetDecimal(5);
+                    articulo.Categoria = new Categoria();
+                    articulo.Categoria.Id = (int)accesoDatos.Lector["ICategoria"];
+                    articulo.Categoria.Descripcion = (string)accesoDatos.Lector["CDescripcion"];
+                    articulo.Marca = new Marca();
+                    articulo.Marca.Id = (int)accesoDatos.Lector["IMarca"];
+                    articulo.Marca.Descripcion = (string)accesoDatos.Lector["MDescripcion"];
+                }
+                return articulo;
+            }
+            catch (Exception exception)
+            {
+                throw exception;
+            }
+            finally
+            {
+                accesoDatos.cerrarConexion();
+            }
+        }
+
         public int agregar(Articulo articulo)
         {
             int idArt;
