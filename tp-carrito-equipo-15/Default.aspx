@@ -28,15 +28,21 @@
         </button>
     </div>
     <div class="row row-cols-1 row-cols-md-4 g-4 m-5 mx-auto w-75">
-        <% foreach(dominio.Articulo articulo in listaArticulos) { %>
+        <% negocio.ImagenNegocio imagenNegocio = new negocio.ImagenNegocio();  
+            foreach(dominio.Articulo articulo in listaArticulos) { 
+            List<string> listaImagenes = new List<string>(); 
+            listaImagenes = imagenNegocio.Imagenes(articulo);
+            imagenArticulo.ImageUrl = listaImagenes[0]; 
+        %>
         <div class="col">
             <div class="card h-100">
                 <asp:Image class="card-img-top" runat="server" id="imagenArticulo" alt="..."/>
                 <div class="card-body">
                     <h5 class="card-title"><%: articulo.Nombre %></h5>
+                    <p class="card-text text-success">$ <%: articulo.Precio%></p>
                     <p class="card-text"><%: articulo.Descripcion %></p>
                 </div>
-                <button type="button" class="btn btn-primary w-50 mx-auto">
+                <button type="button" class="btn btn-primary w-50 mx-auto mb-3">
                     <a href="Detalles.aspx?id=<%: articulo.Id %>" class="btn btn-primary w-100">Ver detalle</a>
                 </button>
             </div>

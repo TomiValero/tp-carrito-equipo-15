@@ -12,13 +12,7 @@ namespace tp_carrito_equipo_15 {
         public List<Articulo> listaArticulos;
         protected void Page_Load(object sender, EventArgs e) {
             ArticuloNegocio articuloNegocio = new ArticuloNegocio();
-            ImagenNegocio imagenNegocio = new ImagenNegocio();
             listaArticulos = articuloNegocio.listar();
-            foreach (Articulo articulo in listaArticulos) {
-                List<string> listaImagenes;
-                listaImagenes = imagenNegocio.Imagenes(articulo);
-                imagenArticulo.ImageUrl = listaImagenes[0];
-            }
         }
     }
 }
