@@ -82,8 +82,9 @@ namespace tp_carrito_equipo_15
                     }
 
                     cantActual += cant;
-                    Session["cantArt"] = cantActual;
-                    Response.Redirect("Carrito.aspx?Id=" + idArt + "&Cant=" + cant, false);
+                    Session["cant"] = cant;
+                    Session["idArt"] = idArt;
+                    Response.Redirect("Carrito.aspx?", false);
                 }
                 else
                 {
