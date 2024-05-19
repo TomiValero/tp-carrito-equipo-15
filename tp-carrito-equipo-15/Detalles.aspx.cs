@@ -17,7 +17,7 @@ namespace tp_carrito_equipo_15
 
         public object Int { get; private set; }
 
-        private void CargarProducto(int id = 1)
+        private void CargarProducto(int id)
         {
             ArticuloNegocio articuloNegocio = new ArticuloNegocio();
             art = articuloNegocio.BuscarPorId(id);
@@ -28,8 +28,8 @@ namespace tp_carrito_equipo_15
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //int id = int.Parse(Request.QueryString["id"]);
-            CargarProducto();
+            int id = int.Parse(Request.QueryString["id"]);
+            CargarProducto(id);
             lblWarningCant.Text = "";
             lblCategoria.Text = art.Categoria.ToString();
             lblMarca.Text = art.Marca.ToString();

@@ -15,7 +15,7 @@
         <header class="header-container">
             <nav class="navbar navbar-expand-lg bg-body-tertiary">
                 <picture class="m-2">
-                    <a class="navbar-brand" href="#">
+                    <a class="navbar-brand" href="Default.aspx">
                         <img src="https://www.frgp.utn.edu.ar/public/frontend/assets/img/logo-footer.png" alt="Bootstrap" width="50" height="50">
                     </a>
                 </picture>

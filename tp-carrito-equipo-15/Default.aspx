@@ -28,77 +28,19 @@
         </button>
     </div>
     <div class="row row-cols-1 row-cols-md-4 g-4 m-5 mx-auto w-75">
+        <% foreach(dominio.Articulo articulo in listaArticulos) { %>
         <div class="col">
             <div class="card h-100">
-                <img src="https://http2.mlstatic.com/D_Q_NP_882734-MLU70045094648_062023-W.webp" class="card-img-top" alt="...">
+                <asp:Image class="card-img-top" runat="server" id="imagenArticulo" alt="..."/>
                 <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    <h5 class="card-title"><%: articulo.Nombre %></h5>
+                    <p class="card-text"><%: articulo.Descripcion %></p>
                 </div>
+                <button type="button" class="btn btn-primary w-50 mx-auto">
+                    <a href="Detalles.aspx?id=<%: articulo.Id %>" class="btn btn-primary w-100">Ver detalle</a>
+                </button>
             </div>
         </div>
-        <div class="col">
-            <div class="card h-100">
-                <img src="https://http2.mlstatic.com/D_Q_NP_735675-MLA76250955411_052024-W.webp" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card h-100">
-                <img src="https://http2.mlstatic.com/D_Q_NP_687883-MLU74994434620_032024-W.webp" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card h-100">
-                <img src="https://http2.mlstatic.com/D_Q_NP_707485-MLU72566388180_112023-W.webp" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card h-100">
-                <img src="https://http2.mlstatic.com/D_Q_NP_911720-MLU72923486631_112023-W.webp" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card h-100">
-                <img src="https://http2.mlstatic.com/D_Q_NP_918611-MLA74808086177_022024-W.webp" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card h-100">
-                <img src="https://http2.mlstatic.com/D_Q_NP_795870-MLU74141650865_012024-W.webp" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card h-100">
-                <img src="https://http2.mlstatic.com/D_Q_NP_637136-MLU74118237498_012024-W.webp" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                </div>
-            </div>
-        </div>
+        <% } %>
     </div>
 </asp:Content>
