@@ -28,11 +28,11 @@
         </button>
     </div>
     <div class="row row-cols-1 row-cols-md-4 g-4 m-5 mx-auto w-75">
-        <% negocio.ImagenNegocio imagenNegocio = new negocio.ImagenNegocio();  
-            foreach(dominio.Articulo articulo in listaArticulos) { 
-            List<string> listaImagenes = new List<string>(); 
-            listaImagenes = imagenNegocio.Imagenes(articulo);
-            imagenArticulo.ImageUrl = listaImagenes[0]; 
+        <% negocio.ImagenNegocio imagenNegocio = new negocio.ImagenNegocio();
+            foreach(dominio.Articulo articulo in listaArticulos) {
+                //List<string> listaImagenes = new List<string>(); 
+                //listaImagenes = imagenNegocio.Imagenes(articulo);
+                //imagenArticulo.ImageUrl = listaImagenes[0]; 
         %>
         <div class="col">
             <div class="card h-100">
