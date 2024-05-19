@@ -36,7 +36,9 @@
         %>
         <div class="col">
             <div class="card h-100">
-                <asp:Image class="card-img-top" runat="server" id="imagenArticulo" alt="..."/>
+                <picture style="min-height: 350px; border-bottom: 1px solid rgba(0, 0, 0, 0.175)">
+                    <asp:Image class="card-img-top" runat="server" id="imagenArticulo" alt="..."/>
+                </picture>
                 <div class="card-body">
                     <h5 class="card-title"><%: articulo.Nombre %></h5>
                     <p class="card-text text-success">$ <%: articulo.Precio%></p>
