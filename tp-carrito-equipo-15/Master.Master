@@ -25,11 +25,8 @@
                             <li class="nav-item m-2">
                                 <a class="nav-link active" aria-current="page" href="Default.aspx">Inicio</a>
                             </li>
-                            <li class="nav-item m-2">
-                                <a class="nav-link" href="#">Contacto</a>
-                            </li>
                              <li class="nav-item m-2" style="display: flex">
-                                <a class="nav-link" href="#">Carrito</a>
+                                <a class="nav-link" href="Carrito.aspx">Carrito</a>
                                 <asp:Label ID="lblNumCarr" runat="server" Text="" style="color:white; background-color:red; margin: 10px; border-radius: 50%; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center;"></asp:Label>
                             </li>
                         </ul>
