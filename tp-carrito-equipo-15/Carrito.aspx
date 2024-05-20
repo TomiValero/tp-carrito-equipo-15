@@ -4,7 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-     <div class="container" style="margin-top: 70px; min-height: 800px">
+     <div class="container" style="margin-top: 70px; min-height: 750px">
       <div class="row">
           <div class="col">
 
@@ -45,7 +45,7 @@
               <div class="card" style="width: 18rem; ">
                   <div class="card-body" style="display: flex; flex-direction: column; align-items: start; gap: 10px;">
                       <h5 class="card-title" >Resumen</h5>
-                      <a href="#" class="btn btn-primary">Continuar Compra</a>
+                      <a href="Default.aspx" class="btn btn-primary">Continuar Compra</a>
                       <h5 class="card-title">Total</h5>
                       <asp:Label runat="server" ID="lblTotal">$<%=TotalPagoArticulos %> </asp:Label>
                   </div>
