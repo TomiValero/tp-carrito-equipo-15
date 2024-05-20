@@ -18,11 +18,11 @@ namespace tp_carrito_equipo_15
 
         public int CantidadActualArticulos { get; set; }
         public SqlMoney TotalPagoArticulos = 0;
-        List<ArticuloCarrito> listaArticulosSeleccionados = new List<ArticuloCarrito>();
+        List<ArticuloCarrito> listaCarritoSeleccionados = new List<ArticuloCarrito>();
 
         private bool ComprobarDato(ArticuloCarrito a, int c, SqlMoney precio)
         {
-            foreach (ArticuloCarrito item in listaArticulosSeleccionados)
+            foreach (ArticuloCarrito item in listaCarritoSeleccionados)
             {
                 if (item.Id == a.Id)
                 {
@@ -78,13 +78,13 @@ namespace tp_carrito_equipo_15
                 Session["cant"] = -1;
                 Session["idArt"] = -1;
 
-                if (Session["listaArticulos"] != null)
+                if (Session["listaCarrito"] != null)
                 {
-                    listaArticulosSeleccionados = (List<ArticuloCarrito>)Session["listaArticulos"];
+                    listaCarritoSeleccionados = (List<ArticuloCarrito>)Session["listaCarrito"];
                     if (!(ComprobarDato(auxArtcart, Cant, auxArticulo.Precio)))
                     {
 
-                        listaArticulosSeleccionados.Add(auxArtcart);
+                        listaCarritoSeleccionados.Add(auxArtcart);
                     }
                 }
                 else
@@ -92,30 +92,30 @@ namespace tp_carrito_equipo_15
 
                     if (!(ComprobarDato(auxArtcart, Cant, auxArticulo.Precio)))
                     {
-                        listaArticulosSeleccionados.Add(auxArtcart);
+                        listaCarritoSeleccionados.Add(auxArtcart);
                     }
-                    Session.Add("listaArticulos", listaArticulosSeleccionados);
+                    Session.Add("listaCarrito", listaCarritoSeleccionados);
                 }
 
-                Session["listaArticulos"] = listaArticulosSeleccionados;
+                Session["listaCarrito"] = listaCarritoSeleccionados;
 
 
 
             }
             else
             {
-                if (Session["listaArticulos"] != null)
+                if (Session["listaCarrito"] != null)
                 {
-                    listaArticulosSeleccionados = (List<ArticuloCarrito>)Session["listaArticulos"];
+                    listaCarritoSeleccionados = (List<ArticuloCarrito>)Session["listaCarrito"];
 
                 }
                 else
                 {
 
-                    Session.Add("listaArticulos", listaArticulosSeleccionados);
+                    Session.Add("listaCarrito", listaCarritoSeleccionados);
                 }
 
-                Session["listaArticulos"] = listaArticulosSeleccionados;
+                Session["listaCarrito"] = listaCarritoSeleccionados;
             }
 
 
@@ -129,9 +129,9 @@ namespace tp_carrito_equipo_15
 
             if (!IsPostBack)
             {
-                if (listaArticulosSeleccionados != null)
+                if (listaCarritoSeleccionados != null)
                 {
-                    repetidor1.DataSource = listaArticulosSeleccionados;
+                    repetidor1.DataSource = listaCarritoSeleccionados;
                     repetidor1.DataBind();
                 }
 
@@ -143,7 +143,7 @@ namespace tp_carrito_equipo_15
         private int TotalProductos()
         {
             int total = 0;
-            foreach (ArticuloCarrito item in listaArticulosSeleccionados)
+            foreach (ArticuloCarrito item in listaCarritoSeleccionados)
             {
                 total += item.Cant;
             }
@@ -153,7 +153,7 @@ namespace tp_carrito_equipo_15
         private SqlMoney TotalProductosPrecio()
         {
             SqlMoney total = 0;
-            foreach (ArticuloCarrito item in listaArticulosSeleccionados)
+            foreach (ArticuloCarrito item in listaCarritoSeleccionados)
             {
                 total += (SqlMoney)item.Precio;
             }
@@ -164,11 +164,11 @@ namespace tp_carrito_equipo_15
         {
 
             int id = int.Parse(((Button)sender).CommandArgument);
-            ArticuloCarrito seleccionado = listaArticulosSeleccionados.Find(x => x.Id == id);
+            ArticuloCarrito seleccionado = listaCarritoSeleccionados.Find(x => x.Id == id);
 
-            listaArticulosSeleccionados.Remove(seleccionado);
+            listaCarritoSeleccionados.Remove(seleccionado);
 
-            Session["listaArticulos"] = listaArticulosSeleccionados;
+            Session["listaCarrito"] = listaCarritoSeleccionados;
 
             Session["cant"] = -1;
             Session["idArt"] = -1;
@@ -182,7 +182,7 @@ namespace tp_carrito_equipo_15
             ArticuloNegocio articuloNegocio = new ArticuloNegocio();
 
             int id = int.Parse(((Button)sender).CommandArgument);
-            ArticuloCarrito seleccionado = listaArticulosSeleccionados.Find(x => x.Id == id);
+            ArticuloCarrito seleccionado = listaCarritoSeleccionados.Find(x => x.Id == id);
 
 
             auxArticulo = articuloNegocio.BuscarPorId(id);
@@ -193,7 +193,7 @@ namespace tp_carrito_equipo_15
 
 
 
-            Session["listaArticulos"] = listaArticulosSeleccionados;
+            Session["listaCarrito"] = listaCarritoSeleccionados;
 
             Session["cant"] = -1;
             Session["idArt"] = -1;
@@ -206,7 +206,7 @@ namespace tp_carrito_equipo_15
             ArticuloNegocio articuloNegocio = new ArticuloNegocio();
 
             int id = int.Parse(((Button)sender).CommandArgument);
-            ArticuloCarrito seleccionado = listaArticulosSeleccionados.Find(x => x.Id == id);
+            ArticuloCarrito seleccionado = listaCarritoSeleccionados.Find(x => x.Id == id);
 
             if (seleccionado.Cant > 1)
             {
@@ -218,7 +218,7 @@ namespace tp_carrito_equipo_15
 
             }
 
-            Session["listaArticulos"] = listaArticulosSeleccionados;
+            Session["listaCarrito"] = listaCarritoSeleccionados;
 
             Session["cant"] = -1;
             Session["idArt"] = -1;
