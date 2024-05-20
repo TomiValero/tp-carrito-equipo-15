@@ -33,8 +33,7 @@
                                 <asp:Label ID="lblNumCarr" runat="server" Text="" style="color:white; background-color:red; margin: 10px; border-radius: 50%; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center;"></asp:Label>
                             </li>
                         </ul>
-                        <input class="form-control me-2 w-25" type="search" placeholder="Buscar" aria-label="Search">
-                        <button class="btn btn-primary" type="submit">Buscar </button>
+                        <button class="btn btn-primary" type="submit">Ingresar</button>
                     </div>
                 </div>
             </nav>

@@ -5,18 +5,13 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="https://http2.mlstatic.com/D_NQ_688120-MLA76025194258_052024-OO.webp" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item">
-                <img src="https://http2.mlstatic.com/D_NQ_946704-MLA76296870887_052024-OO.webp" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item">
-                <img src="https://http2.mlstatic.com/D_NQ_732245-MLA76247333205_052024-OO.webp" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item">
-                <img src="https://http2.mlstatic.com/D_NQ_606738-MLA76267875949_052024-OO.webp" class="d-block w-100" alt="...">
-            </div>
+            <asp:Repeater ID="imagenesBanner" runat="server">
+                <ItemTemplate>
+                    <div class="carousel-item <%# Container.ItemIndex == 0 ? "active" : "" %>">
+                        <img src='<%# Container.DataItem %>' class="d-block w-100" alt="...">
+                    </div>
+                </ItemTemplate>
+            </asp:Repeater>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -27,28 +22,28 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
+    <div class="w-25 mt-5 mx-auto">
+        <asp:TextBox runat="server" ID="filter" CssClass="form-control" Style="color: rgba(0, 0, 0, 0.175)" AutoPostBack="true" OnTextChanged="filter_TextChanged" placeholder="Buscar Articulo">  </asp:TextBox>
+    </div>
     <div class="row row-cols-1 row-cols-md-4 g-4 m-5 mx-auto w-75">
-        <% negocio.ImagenNegocio imagenNegocio = new negocio.ImagenNegocio();
-            foreach(dominio.Articulo articulo in listaArticulos) {
-                //List<string> listaImagenes = new List<string>(); 
-                //listaImagenes = imagenNegocio.Imagenes(articulo);
-                //imagenArticulo.ImageUrl = listaImagenes[0]; 
-        %>
-        <div class="col">
-            <div class="card h-100">
-                <picture style="min-height: 350px; border-bottom: 1px solid rgba(0, 0, 0, 0.175)">
-                    <asp:Image class="card-img-top" runat="server" id="imagenArticulo" alt="..."/>
-                </picture>
-                <div class="card-body">
-                    <h5 class="card-title"><%: articulo.Nombre %></h5>
-                    <p class="card-text text-success">$ <%: articulo.Precio%></p>
-                    <p class="card-text"><%: articulo.Descripcion %></p>
+        <asp:Repeater runat="server" id="listaArticulos" OnItemDataBound="listaArticulos_ItemDataBound">
+            <ItemTemplate>
+                <div class="col" style="max-width: 75%">
+                    <div class="card h-100">
+                        <picture style="min-height: 350px; border-bottom: 1px solid rgba(0, 0, 0, 0.175)">
+                            <asp:Image runat="server" ID="imagenArticulo" Style="max-width: 100%;" />
+                        </picture>
+                        <div class="card-body">
+                            <h5 class="card-title"><%#Eval("Nombre")%></h5>
+                            <p class="card-text text-success">$ <%#Eval("Precio")%></p>
+                            <p class="card-text"><%#Eval("Descripcion")%></p>
+                        </div>
+                        <button type="button" class="btn btn-primary w-50 mx-auto mb-3">
+                            <a href="Detalles.aspx?id=<%#Eval("Id")%>" class="btn btn-primary w-100">Ver detalle</a>
+                        </button>
+                    </div>
                 </div>
-                <button type="button" class="btn btn-primary w-50 mx-auto mb-3">
-                    <a href="Detalles.aspx?id=<%: articulo.Id %>" class="btn btn-primary w-100">Ver detalle</a>
-                </button>
-            </div>
-        </div>
-        <% } %>
+            </ItemTemplate>
+        </asp:Repeater>
     </div>
 </asp:Content>
