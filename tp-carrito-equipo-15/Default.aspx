@@ -23,7 +23,7 @@
         </button>
     </div>
     <div class="w-25 mt-5 mx-auto">
-        <asp:TextBox runat="server" ID="filter" CssClass="form-control" Style="color: rgba(0, 0, 0, 0.175)" AutoPostBack="true" OnTextChanged="filter_TextChanged" placeholder="Buscar Articulo">  </asp:TextBox>
+        <asp:TextBox runat="server" ID="filter" CssClass="form-control" AutoPostBack="true" OnTextChanged="filter_TextChanged" placeholder="Buscar Articulo">  </asp:TextBox>
     </div>
     <div class="row row-cols-1 row-cols-md-4 g-4 m-5 mx-auto w-75">
         <asp:Repeater runat="server" id="listaArticulos" OnItemDataBound="listaArticulos_ItemDataBound">
