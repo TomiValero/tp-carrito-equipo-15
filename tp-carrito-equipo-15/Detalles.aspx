@@ -10,7 +10,7 @@
 
           <div class="carousel-inner">
               <div class="carousel-item active">
-                  <asp:Image ID="Imagen" runat="server" AlternateText=" IMAGEN NO DISPONIBLE " CssClass ="d-block w-100" style="width:400px; height:400px; object-fit: contain;"/>
+                  <asp:Image ID="Imagen" runat="server" ImageUrl="https://www.filepicker.io/api/file/Km01a73PSDr2Q74TCYoe" AlternateText=" IMAGEN NO DISPONIBLE " CssClass ="d-block w-100" style="width:400px; height:400px; object-fit: contain;"/>
               </div> 
           </div>
 
